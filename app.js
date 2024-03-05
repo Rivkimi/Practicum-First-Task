@@ -1,10 +1,11 @@
 import express from 'express';
-import router from './routes/User.js';
-
+import userRouter from './routes/User.js';
+import cors from "cors";
 const app = express();
 
 app.use(express.json())
-app.use('/', router);
+app.use(cors())
+app.use('/api/user', userRouter);
 
 app.listen(8000, () => {
     console.log("app is listening on port 8000");
