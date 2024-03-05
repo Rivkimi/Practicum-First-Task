@@ -1,10 +1,12 @@
-const express = require('express')
-const User=require('./models/User')
-const userRoutes = require('./routers/User')
-const app= express()
-app.use(express.json())
-app.use('/User',userRoutes)
-app.listen(8000,()=>{
-    console.log("port 8000")
-})
 
+import express from 'express';
+import router from 'routing';
+
+const app = express();
+
+app.use(express.json());
+app.use('/', router);
+
+app.listen(8000, () => {
+    console.log("app is listening on port 8000");
+})
