@@ -1,4 +1,4 @@
-import Users from "./models/User"
+import Users from "../models/User"
 
 export const addUser = async (res, req) => {
     try {
@@ -42,5 +42,16 @@ export const getAllUsers = async (res, req) => {
         res.json(allUsers);
     } catch (error) {
         res.status(500).json({ massege: "cannot get users" });
+    }
+}
+export const getUserById=async(res,req)=>{
+    try{
+        let id= req.params.id;
+        let user = await Users.findOne(x => x.Id = id);
+        if (!user)
+            res.status(404).json({ massege: "user not found" });
+         res.json(user);
+    }catch(error){
+        res.status(500).json({ massege: "cannot get user" });
     }
 }
