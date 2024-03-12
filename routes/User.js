@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get("/",controllers.getAllUsers);
 router.get("/:id",controllers.getUserById);
-router.post("/", controllers.addUser); // יצירת משתמש חדש
-router.put("/:id", controllers.updateUser); // עדכון פרטי משתמש
-router.delete("/:id", controllers.delelteUser); // מחיקת משתמש 
+router.post("/", controllers.addUser);
+router.put("/:id", controllers.updateUser); 
+router.delete("/:id", controllers.delelteUser); 
 
 export default router;
